@@ -2,6 +2,8 @@ import java.util.*;
 
 public class W2_HW1 {
     public static void main(String[] args) throws Exception {
+
+        // const
         final int LBOUND = 1;
         final int RBOUND = 100;
         final int LSUBBOUND = 30;
@@ -13,6 +15,8 @@ public class W2_HW1 {
         Random rand = new Random();
         int count = 0;
         int temp;
+
+        // get 10 random numbers between 1 ~ 100
         while (count < LENGTH) {
             temp = rand.nextInt(RBOUND);
             while (temp < LBOUND) {
@@ -21,11 +25,23 @@ public class W2_HW1 {
             arr[count] = temp;
             count++;
         }
+
+        // for-each loop for tSet
         for (int i : arr) {
             tSet.add(i);
         }
-        System.out.printf("電腦從 %d ~ %d 的整數中，亂數取出 %d 個不重複的號碼....\n", LBOUND, RBOUND, LENGTH);
+
+        // check for dublicates
+        while (tSet.size() < LENGTH) {
+            temp = rand.nextInt(RBOUND);
+            while (temp < LBOUND) {
+                temp = rand.nextInt(RBOUND);
+            }
+            tSet.add(temp);
+        }
+
         count = 0;
+        System.out.printf("電腦從 %d ~ %d 的整數中，亂數取出 %d 個不重複的號碼....\n", LBOUND, RBOUND, LENGTH);
         while (count < LENGTH) {
             System.out.printf("第 %d 個號碼：%d\n", count + 1, arr[count]);
             count++;
