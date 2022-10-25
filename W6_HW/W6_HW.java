@@ -105,6 +105,6 @@ class ImgViewer extends JFrame {
 
 public class W6_HW {
     public static void main(String[] args) {
-        new ImgViewer("./Img");
+        new ImgViewer("./");
     }
 }
